@@ -64,7 +64,6 @@ module.exports.salvar = function (app, request, response){
   
   const modelUsuario =new app.app.models.modelUsuario(conexao);
   modelUsuario.salvar(dados, idUsuario, function(error, result) {
-    console.log(error)
       response.redirect('/admin/listar_usuario');
 
   });
@@ -148,7 +147,6 @@ module.exports.salvarProduto = function (app, request, response){
   console.table(dados)
   const modelAdmin =new app.app.models.modelAdmin(conexao);
   modelAdmin.salvarProduto(dados, idProduto, function(error, result) {
-    console.log(error)
       response.redirect('/admin/listar_produto');
 
   });

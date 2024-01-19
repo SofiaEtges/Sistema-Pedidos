@@ -24,10 +24,10 @@ Pedido.prototype.criarPedido = function (idUsuario) {
     })
 }
 
-Pedido.prototype.getIdPedidoAberto = function (idUsuario) {
+Pedido.prototype.getPedidoAberto = function (idUsuario) {
     return new Promise((resolve, reject) => {
-        this._conexao.query(`SELECT * FROM pedido WHERE id_usuario = ${idUsuario} AND id = 1;`, function(errors, result) {
-            resolve(result[0].id);
+        this._conexao.query(`SELECT * FROM pedido WHERE id_usuario = ${idUsuario} AND id_status = 1;`, function(errors, result) {
+            resolve(result);
         })
     })
 }

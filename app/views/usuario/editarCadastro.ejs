@@ -24,22 +24,6 @@
           <input type="password" name="senha" id="senha" value="<%= usuario[0].senha %>">
       </div>
         <div>
-            <label>Tipo de Usuario</label>
-            <br>
-            <select name="id_tipo_usuario">
-                <% for (let i= 0; i< tipos.length; i++)
-                {
-                  if (usuario[0].id_tipo_usuario == tipos[i].id){
-                    %>
-                      <option value="<%=tipos[i].id%>" selected><%=tipos[i].descricao%></option>
-                    <%
-                  }
-                  else 
-                     {
-                       %>
-                         <option value="<%=tipos[i].id%>" selected><%=tipos[i].descricao%></option>
-                     <%}}%>  
-            </select>
         <br>
         <br>
         <input type="submit" value="salvar ">

@@ -11,7 +11,7 @@
 <body>
     <%- include('../../public/menuUsuario.html') %>
 
-        <h1>Produtos</h1>
+        <h1>Carrinho</h1>
 
         <% if (erros) { %>
             <ul>
@@ -27,21 +27,25 @@
                     <tr>
                         <th>Descrição</th>
                         <th>Preço</th>
+                        <th>Quantidade</th>
                         <th></th>
                     </tr>
-                    <% for(let i = 0;i<produto.length; i++){%>
-                      <tr>
-                        <td>
-                            <%= produto[i].descricao%>
-                        </td>
-                        <td>
-                            <%=  produto[i].preco%>
-                        </td>
-                        <td>
-                                <a href="/carrinho/adicionar/<%=produto[i].id%>">Adicionar ao carrinho</a>
-                        </td>
-                      </tr>
-                    <%}%>
+                        <tr>
+                            <% for (let i = 0; i<carrinho.length; i++){
+
+                             %>
+                             <td>
+                                <%= carrinho[i].descricao %>
+                             </td>
+                             <td>
+                                <%= carrinho[i].preco %>
+                             </td>
+                             <td>
+                               <%= carrinho[i].quantidade %> 
+                             </td>
+                            <% }%>
+                            
+                        </tr>
                 </table>
 </body>
 

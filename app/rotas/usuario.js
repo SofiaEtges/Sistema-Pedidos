@@ -3,6 +3,9 @@ module.exports = function (app) {
     app.post('/usuario/cadastrar', function (request, response) {
         app.app.controllers.usuario.cadastrar(app, request, response)
     })
+    app.get('/', function(request, response) {
+        app.app.controllers.usuario.usuario_login(app, request, response)
+    })
     app.get('/usuario/login', function(request, response){
         app.app.controllers.usuario.usuario_login(app, request, response)
     })

@@ -77,19 +77,12 @@ module.exports.sair = function(app, request, response){
 }
 
 module.exports.editar = function (app, request, response){
-    if(request.session.id_tipo_usuario =! 2)
-    {  
-       response.redirect('/')
-       return;
-    }
     const idUsuario = request.session.id_usuario;
     const conexao = app.config.conexao;
     const modelUsuario = new app.app.models.modelUsuario(conexao);
     const modelTipoUsuario = new app.app.models.modelTipoUsuario(conexao);
     modelUsuario.getUsuarioById(idUsuario, function(error, usuario){
         modelTipoUsuario.getTipos(function(error, tipos){
-            console.log(usuario)
-            console.log(tipos)
             response.render('usuario/editarCadastro', {usuario: usuario, tipos: tipos, erros: {}})
         })
     })
@@ -100,7 +93,6 @@ module.exports.editar = function (app, request, response){
     const conexao = app.config.conexao;
     const modelUsuario =new app.app.models.modelUsuario(conexao);
     modelUsuario.salvar(dados, idUsuario, function(error, result) {
-        console.log(error)
         response.redirect('/usuario/menu');
     });
   }
